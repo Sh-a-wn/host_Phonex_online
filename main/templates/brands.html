@@ -1,0 +1,100 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brands</title>
+</head>
+
+<body>
+    <style>
+        .product-card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 10px;
+            margin: 10px;
+            text-align:left;
+            display:block;
+          }
+          .product-card img {
+            width: 100%;
+            height: auto;
+          }
+          .product-card button {
+            background-color: #34e237;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+          }
+          .product-card button:hover {
+            background-color: #379683;
+          }
+
+          .sidenav {
+            color: rgb(248, 248, 248);
+            background-color: rgb(108, 108, 108);
+            border: none;
+            padding: 20;
+            border-radius: 12px;
+            position:fixed;
+            top: 50;
+            right: 10;
+          }
+          .sidenav:hover{
+            background-color: rgb(35, 35, 35);
+            color: rgb(255, 255, 255);
+          }
+        </style>
+        
+        <html>
+          <a href="{% url 'homepage' %}"><button class="sidenav">Back</button></a>
+        
+        <h1><u>Available Brands</h1></u>
+        
+        <div  class="container">
+          {% for brand in brands %}
+          
+          <div  class="product-card">
+            <p><h2>{{brand.name}}</h2></p>
+            <ul>
+              <p>UGX {{brand.price}}</p>
+              
+            {% if brand.image %}
+            <img src="{{brand.image.url}}" alt="img">
+            {% endif %}
+
+            {% if brand.condition == True %}
+                <p>Condition: New</p>
+            {% else %}
+                <p>Condition: Used</p>
+            {% endif %}
+            
+            {% if brand.color == '' %}
+                <p>Color: Not specified</p>
+            {% else %}
+                <p>Color: {{brand.color}}</p>
+            {% endif %}
+        
+            <p>{{brand.description}}</p>
+
+            
+            </ul>
+
+            
+            <button>Buy</button>
+        </div>
+        
+        {%endfor%}
+        </div>
+        
+        <ul>
+        </ul>
+        </html>
+        
+</body>
+</html>

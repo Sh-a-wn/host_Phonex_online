@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form method="POST" action= '' class="form-group">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" name="Create user">
+</form>
+{% endblock content %}

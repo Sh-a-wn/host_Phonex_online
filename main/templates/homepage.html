@@ -1,0 +1,537 @@
+<!-- homepage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}Phonex - Buy and Sell Phones Online{% endblock %}</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.app.goo.gl/u2Y9fAyxs19c3hwP7');
+        }
+        footer {
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: #232f3e;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        nav ul li a:hover{
+            background-color: cyan;
+            color: rgb(40, 40, 40);
+            border-radius: 12px;
+            padding: 11px 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .product button {
+            background-color: #f0c14b;
+            border: none;
+            color: #111;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .product button:hover {
+            background-color: #ddb347;
+        }
+
+        .login-register {
+            
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            align-self: hover;
+            
+        }
+
+        .login-register h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .login-register form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-register input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-register button {
+            background-color: #f0c14b;
+            border: none;
+            color: #111;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .login-register button:hover {
+            background-color: #ddb347;
+        }
+
+        footer {
+            background-color: #e0d5d5;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Phonex - Buy and Sell Phones Online</h1>
+    </header>
+    
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'brands' %}">Deals</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            
+            
+            {%if user.profile.role == "SELLER" %}
+            <li><a href="{% url 'sell_phone' %}">Sell Phone</a></li> <!-- Added Sell Phone option -->
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'profile' %}">Role</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="login-register">
+            <h2>Login
+a<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonex - Buy Phones Online</title>
+    <style>
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            background-image: url("gradient_bg.png");
+             background-repeat: repeat-x;
+        }
+
+        header {
+            background-color: #232f3e;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            image-orientation: from-image;
+        }
+
+        .product button {
+            background-color: #f0c14b;
+            border: none;
+            color: #111;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .product button:hover {
+            background-color: #ddb347;
+        }
+
+        .login-register {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-register h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .login-register form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-register input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-register button {
+            background-color: #f0c14b;
+            border: none;
+            color: #111;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .login-register button:hover {
+            background-color: #ddb347;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.horizontal-images {
+  display: flex;
+  flex-wrap: wrap; /* Allow images to wrap to the next line if necessary */
+}
+.horizontal-images {
+    background-color: #333;
+}
+
+.horizontal-images img {
+  margin-right: 10px; /* Adjust margin as needed for spacing */
+}
+
+@media screen and (max-width: 500px) {
+  .horizontal-images img {
+    width: 50%; /* Make images take up full width on smaller screens */
+    margin-right: 0; /* Remove margin to prevent excess spacing */
+  }
+}
+
+        /* Styling for the banner */
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #00cc99; /* Green background */
+            padding: 20px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            color: #333; /* Dark gray color */
+        }
+
+        .sell-button {
+            background-color: #ff9900; /* Orange background */
+            color: #fff; /* White text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+
+    </style>
+</head>
+<body>
+    
+
+   
+    <div class="container">
+        <div class="login-register">
+            <h2>Login or Register</h2>
+            <form id="login-form">
+                <input type="email or phone number" placeholder="Email or phone number" required>
+                <input type="password" placeholder="Password" required>
+                <input type="confirm password" placeholder="confirm password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+        </div>
+        <nav>
+            <ul>
+                <label for="phones">phones:</label>
+                <select name="phones" id="phones">
+                    <option value="samsung">samsung</option>
+                    <option value="i phone">iphone</option>
+                    <option value="oppo">oppo</option>
+                    <option value="xiaomi">xiaomi</option>
+                    <option value="google pixel">google pixel</option>
+                    <option value="tecno">tecno</option>
+                    <option value="more">more</option>
+                    </select>
+                    <button value="submit"
+                <li><a href="https://unsplash.com/s/photos/samsung">samsung</a></li>
+                <li><a href="https://www.istockphoto.com/photos/apple-phone">iphone</a></li>
+                <li><a href="https://www.shutterstock.com/search/oppo">oppo</a></li>
+                <li><a href="https://www.mi.com/global/phone/">xiaomi</a></li>
+                <li><a href="https://www.pexels.com/search/google%20pixel/">google pixel</a></li>
+                <li><a href="https://www.tecno-mobile.com/phones/product-list/">tecno</a></li> <!-- Added Sell Phone option -->
+            </ul>
+        </nav>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+       
+</head>
+<body>
+    <div class="banner">
+        <div>
+            <p>How to buy on phonex?</p>
+            <p>Check out the step-by-step guide</p>
+        </div>
+        <a href="#"></a>
+        <div class="arrow">→</div>
+        <button class="sell-button">Got something to sell? Post an advert for free!</button>
+    </div>
+</body>
+</html>
+
+        <div class="class horizontal-images">
+            
+              <img src="https://media.wired.com/photos/6202b99c2c286ef2d70b5b0a/1:1/w_1281,h_1281,c_limit/Gear-Samsung-Galaxy-S22-Ultra.jpg" alt="samsung" style="width: 30%;">
+            
+              <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQJlh_Wzrr2Ie5o0Kbckkx7KuV9r6aKHIuzGniANLakQ3nufLFsllSVnary--xIAeIQ_ZwUXsJGlU_y0Q3tb02C4NBafniq7z5DmwCaL14ds0VnJM0A6qb3Ui5fh0Nxf-MbmX3sQQ&usqp=CAc alt="xiaomi style="width: 30%;">
+
+              <img src="https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg" alt="Mountains" style="width: 30%;">
+            </div>
+          </div>
+          
+    
+
+        <div class="product">
+            <img src="data:image/jpeg;base64,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" alt="i phone 14 pro max">
+            <h2>iphone 14 pro max</h2>
+            <p>discover the power of i phone </p>
+            <p>Ugx.59999</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="data:image/jpeg;base64,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" alt="samsung galaxy s9">
+            <h2>samsung galaxy s9</h2>
+            <p>discover the power of samsung galaxy s9.</p>
+            <p>Ugx.29999</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="data:image/jpeg;base64,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" alt="sony xperia">
+            <h2>sony xperia</h2>
+            <p>discover the power of sony xperia</p>
+            <p>Ugx.69999</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+
+    <footer>
+        <ol>
+            <p>follow us on</p>
+        <li a href ="#" ><i class="fa fa-facebook" aria hidden = "false"></i></a></li>
+        <li a href ="#" ><i class="fa fa-instagram" aria hidden = "false"></i></a></li>
+        <li a href ="#" ><i class="fa fa-twitter" aria hidden = "false"></i></a></li>
+        <li a href ="#" ><i class="fa fa-whatsapp" aria hidden = "false"></i></a></li>
+        </ol>
+</body>
+</html>

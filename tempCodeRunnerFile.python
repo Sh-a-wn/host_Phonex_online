@@ -1,0 +1,27 @@
+def Greatest(arr):
+    n = len(arr)
+    print(n, 'items')
+    if n == 0:
+        print("The array is empty")
+        return None
+    elif n >= 1:
+        position = 0
+        biggest = arr[position]
+        position += 1
+        while position < n:
+            if arr[position] > biggest:
+                biggest = arr[position]
+                print("Biggest", biggest)
+                position += 1
+            elif  arr[position] <= biggest:
+                position += 1
+        print("The largest item in the array is:", biggest)
+           
+    else:
+        raise ValueError("Invalid input")
+    return biggest
+
+sample = [1,3,5,7,5,3,323,54,65,32,3223,34,2]
+sample2 = []
+sample3 = [0]
+Greatest(sample3)
