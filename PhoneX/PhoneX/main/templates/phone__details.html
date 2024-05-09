@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ phone_listing.title }}</title>
+    <!-- Add your phone detail page styles here -->
+</head>
+<body>
+    <h1>{{ phone_listing.title }}</h1>
+    <p>Brand: {{ phone_listing.brand }}</p>
+    <p>Model: {{ phone_listing.model }}</p>
+    <p>Price: {{ phone_listing.price }}</p>
+    <!-- Add more details as needed -->
+    <a href="{% url 'user_logout' %}">Logout</a>
+</body>
+</html>

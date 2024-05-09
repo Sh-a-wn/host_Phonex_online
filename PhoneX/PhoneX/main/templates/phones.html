@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone Categories</title>
+<p>select the phone type that you want</p>
+<style>
+    p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        transition-duration: 3s;
+        color: #007bff;
+        background-image: none;
+    }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  .category {
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .category:hover {
+    background-color: #f9f9f9;
+  }
+  .category h2 {
+    color: #007bff;
+  }
+  .phones {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .phone {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .phone:hover {
+    background-color: #e9e9e9;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Phone Categories</h1>
+
+  <div class="category" onclick="showPhones('smartphones')">
+    <h2>Smartphones</h2>
+    <ul class="phones" id="smartphones">
+      <a href="https://www.google.com/aclk?sa=l&ai=DChcSEwihkKSfj4KFAxV9tWgJHZewCGYYABABGgJ3Zg&ase=2&gclid=CjwKCAjw7-SvBhB6EiwAwYdCAR9WDHZArqODzOVprKHNERnDAPfJCcCr1lvEXGziglgUcTnqo-JaqxoCxCgQAvD_BwE&sig=AOD64_0mS8IRGOoGOlY3kvonNOpu2eRefQ&ctype=5&nis=6&adurl&ved=2ahUKEwjC6Jmfj4KFAxWjkicCHUwhBq0Qvhd6BAgBEF8"><li class="phone">iPhone</li></a>
+      <a href="smartphone_listings.html"><li class="phone">Samsung Galaxy</li></a>
+      <a href="smartphone_listings.html"><li class="phone">Google Pixel</li></a>
+    </ul>
+  </div>
+
+  <div class="category" onclick="showPhones('featured-phones')">
+    <h2>Feature Phones</h2>
+    <ul class="phones" id="feature-phones">
+      <a href="featured_phone_listings.html"><li class="phone">Nokia 3310</li></a>
+      <a href="featured_phone_listings.html"><li class="phone">Motorola Razr</li></a>
+    </ul>
+  </div>
+
+  <div class="category" onclick="showPhones('phablets')">
+    <h2>Phablets</h2>
+    <ul class="phones" id="phablets">
+      <a href="phablet_listings.html"><li class="phone">Samsung Galaxy Note</li></a>
+      <a href="phablet_listings.html"><li class="phone">iPhone Plus Series</li></a>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  function showPhones(category) {
+    var allCategories = document.querySelectorAll('.phones');
+    allCategories.forEach(function(cat) {
+      cat.style.display = 'none';
+    });
+    document.getElementById(category).style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

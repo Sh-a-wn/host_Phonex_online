@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Login as dealer</h1>
+
+<body>
+    <p>Dealers are able to add models and brands of phones they wish to sell</p>
+    <form action="">
+        <label>User Name</label>
+        <input type="text" name="username">
+        <div>
+            <label>Password</label>
+            <input type="password" placeholder="password">
+            <div>
+            <a href="{% url 'homepage' %}">
+                <button type="submit">Login</button>
+            </a>
+            </div>
+        </div>
+    </form>
+</body>
+
+{% endblock %}

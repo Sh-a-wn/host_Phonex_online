@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonex Home Page</title>
+    <style>
+
+        body, h1, h2, p, a { margin: 0; padding: 0; }
+        body {
+            font-family: garamond;
+            font-size: larger;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            border-radius: 12px;
+            box-shadow: 0 14px 14px grey;
+            background: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            display: block;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #006fab;
+            border-radius: 12px;
+        }
+
+        .container {
+            max-width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Phonex</h1><img src="/media/phones/images/image23-6.png" width="300" height="80" alt="Phonex logo">
+
+    </header>
+
+    <div class="container">
+        <h2><a style="color: black;" href="{% url 'about' %}">About Us</a></h2>
+        <p>Phonex is your one-stop shop for anything to do with phones and any other mobile devices. We are thrilled to have you here. Learn more about what we do by visiting our <a href="{% url 'about' %}">About</a> page.</p>
+        <br>
+        <hr>
+        <br>
+        <h2><a style="color: black;" href="{% url 'login' %}">Login</a></h2>
+        <p>To get started, <a href="{% url 'login' %}">Login</a> to your account and browse through all the available devices or sell one of your own</p>
+        <br>
+        <hr>
+        <br>
+        <h2><a style="color: black;" href="{% url 'register' %}">No Account Yet?</a></h2>
+        <p>No problem! Just click <a href="{% url 'register' %}">here</a> and create your own account as either a buyer or seller. Don't worry, you can freely change between roles afterwards.</p>
+    </div>
+    <footer>
+        <p>&copy; Phonex</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <body>
+            <style>
+                body {
+    margin: 10px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; 
+    align-content: left;
+}
+
+h1 { color: black;
+                     }
+                     h2 {
+                        color: black;
+                        text-decoration: bold;
+
+                     }
+footer {
+    background-color: grey;
+    width: 100%;
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+                     
+
+            </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT PHONEX</title>
+
+    <u><h1>ABOUT US</h1></u>
+
+    <h2>Mission:</h2>
+    <p>Our aim is to satisfy all the needs users may have when it comes to purchasing or selling phones by gathering buyers and sellers in a single, easy-to-use platform where phones can be exchanged, hence the name Phonex.</p>
+
+    <h2>How to buy devices on Phonex:</h2>
+    To buy phones:
+    <p>
+        <li><a href="{% url 'login' %}">Login</a> to your account or <a href="{% url 'register' %}"> create an account</a> if you don't already have one.</p></li>
+        <li>Switch your account role to 'Buyer' from the <a href="{% url 'profile' %}">Roles</a> page.</li></p>
+        <li>Vist our <a href="{% url 'brands' %}">Deals</a> page and browse through the available brands.</p></li>
+        <li>If you see something you like, feel free to add it to your cart and checkout.</p></li>
+        <br>
+
+    <h2>How to sell devices on Phonex:</h2>
+    To sell a phone:
+    <p>
+        <li>Switch your account role to 'Seller' from the <a href="{% url 'profile' %}">Roles</a> page.</li></p>
+        <li>Visit our <a href="{% url 'sell_phone' %}">Sell Phone</a> page and correctly fill in the details about the phone you would like to sell.</li></p>
+        <p><u><b>Note:</b></u> The fields 'Name' and 'Price' cannot be left blank but it is advised to fill in all fields for the best results.</p>
+        <li>After filling in and submitting the form, you may visit the <a href="">Deals</a> page to have a look at your device.</li></p>
+
+<h2>Seller Guidelines:</h2>  
+
+<p>Pay attention to the details.</p>
+<p>Use good photos of your device.</p>
+<p>Write a clear and detailed descriptions about your device.</p></p>
+<p>Ensure you have full legal ownership of the device you are selling. Failure to meet this requirement can lead to legal action being taken.</p>
+
+<h2>SAFETY</h2>
+
+<p><em>1. General</em></p>
+<p>We are highly focused on the security and can solve any issues in short-terms. That’s why we ask you, kindly, to leave a review after purchasing. If you run into any problems with a seller, you can report it and Jiji Team will check this seller as soon as possible.</p>
+
+<p><em>2. Personal safety tips.</em></p>
+<p>- Do not pay in advance, even for the delivery</p>
+<p>- Try to meet at a safe, public location</p>
+<p>- Check the item BEFORE you buy it</p>
+<p>- Pay only after collecting the item</p>
+
+<p><em>3. Secure payments.</em></p>
+<p>Phonex provides Premium Services for those who want to sell and earn more. We accept both online and offline payments for these services. We guarantee secure and reliable payments on Phonex.</p>
+ <footer>Terms and Conditions apply.</footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonex Cart</title>
+</head>
+
+</html>
+<style>
+     body,
+		html {
+			margin: 0;
+			padding: 12px;
+			height: 100%;
+			background: #d4fef6;
+		}
+.cart-container {
+    padding: 20px;
+    background-color: #a5f4e7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    background-color: #c7f0ea;
+    border-bottom: 1px solid #000000;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-details {
+    font-size: 16px;
+}
+
+.item-name {
+    font-weight: bold;
+}
+
+.btn {
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #7f858d;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-increase{
+    background-color: rgb(60, 203, 38);
+}
+
+.btn-decrease {
+    background-color: #f43144; 
+}
+
+.btn:hover {
+    background-color: #404345; 
+}
+
+.btn-decrease:hover {
+    background-color: #b41e2d; 
+}
+.btn-increase:hover{
+    background-color: rgb(35, 112, 23);
+}
+
+.cart-form {
+    display: flex;
+    gap: 10px;
+}
+
+</style>
+
+<h2>Your Cart</h2>
+<div class="cart-container">
+    <ul class="cart-items">
+        {% for product_id, item in cart.items %}
+        <li class="cart-item">
+            <div class="item-details">
+                <span class="item-name">{{ item.name }}</span>
+                - UGX<span class="item-price">{{ item.price }}</span> each
+                (Quantity: <span class="item-quantity">{{ item.quantity }}</span>)
+            </div>
+            
+            <form action="{% url 'adjust_cart' product_id %}" method="post" class="cart-form">
+                {% csrf_token %}
+                <button type="submit" name="action" value="decrease" class="btn btn-decrease">-</button>
+                <button type="submit" name="action" value="increase" class="btn btn-increase">+</button>
+            </form>
+        </li>
+        {% endfor %}
+        <h2>Total: UGX {{total}}</h2>
+    </ul>
+    <button class="btn">Checkout</button> <a href="{% url 'brands' %}"><button style="left: 50%;" type="button" class="btn">Back to Store</button></a>
+</div>
+
+
+

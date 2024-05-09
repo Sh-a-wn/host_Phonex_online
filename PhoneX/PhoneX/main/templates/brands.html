@@ -1,0 +1,132 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brands</title>
+    <script src="{% static 'staticfiles/admin/js/admin/cart.js' %}"></script>
+</head>
+
+<body>
+    <style>
+        .product-card {
+            width: 300px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 10px;
+            margin: 10px;
+            text-align:left;
+            display:block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+          .product-card img {
+            width: 100%;
+            height: auto;
+          }
+          .product-card button {
+            background-color: #34e237;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+          }
+          .product-card button:hover {
+            background-color: #379683;
+          }
+
+          .sidenav {
+            color: rgb(248, 248, 248);
+            background-color: rgb(108, 108, 108);
+            border: none;
+            padding: 20;
+            border-radius: 12px;
+            position:fixed;
+            top: 50;
+            left: 390;
+          }
+          .sidenav:hover{
+            background-color: rgb(35, 35, 35);
+            color: rgb(255, 255, 255);
+          }
+          .cart-button {
+            background-color: rgb(207, 156, 14);
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 20;
+            border-radius: 12px;
+            position:fixed;
+            top: 130;
+            left: 390;
+          }
+          .cart-button:hover{
+            background-color: rgba(183, 136, 8, 0.693);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+          }
+          
+        </style>
+        
+        <html>
+          <a href="{% url 'homepage' %}"><button class="sidenav">Back</button></a>
+        
+        <h1><u>Available Brands</h1></u>
+
+      </div>
+        
+        <div  class="container">
+          {% for brand in brands %}
+          
+          <div  class="product-card">
+            <p><h2>{{brand.name}}</h2></p>
+            <ul>
+              <p>UGX {{brand.price}}</p>
+              
+            {% if brand.image %}
+            <img src="{{brand.image.url}}" alt="Image of {{brand.name}}">
+            {% endif %}
+
+            {% if brand.condition == True %}
+                <p>Condition: New</p>
+            {% else %}
+                <p>Condition: Used</p>
+            {% endif %}
+            
+            {% if brand.color == '' %}
+                <p>Color: Not specified</p>
+            {% else %}
+                <p>Color: {{brand.color}}</p>
+            {% endif %}
+
+            {% if brand.description == '' %}
+              <p><u>Description:</u> No description provided.</p>
+            {%  else %}
+              <p><u>Description:</u> {{brand.description}}</p>
+            {% endif %}
+            
+            </ul>
+
+            
+            <form action="{% url 'add_to_cart' brand.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Add to Cart</button>
+            </form>
+    </div>
+        </div>
+        
+        {%endfor%}
+        </div>
+
+        <a href="{% url 'view_cart' %}">
+          <button class="cart-button">
+            <h3>Your Cart</h3>
+            <p>Total Items: {{ total_items }}</p>
+          </button>
+        </a>
+        </html>
+        
+</body>
+</html>

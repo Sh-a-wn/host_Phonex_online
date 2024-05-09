@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<style>
+    .radio-div {
+        display: inline;
+    }
+    .radio-button {
+        background-color: rgb(87, 1, 141);
+        border: none;
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        margin: 1%;
+        padding: 2%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .radio-button:hover{
+        background-color: rgb(14, 0, 57);
+        color: rgb(170, 0, 255);
+    }
+</style>
+
+<body>
+    <form action="{% url 'profile' %}" class="radio-form" method="POST">
+        {% csrf_token %}
+        <h3><p>Register as either a buyer or a seller</p></h3>
+        {{form.as_p}}<hr>
+        <div class="radio-div">
+         <a href="{% url 'homepage' %}"><button class="radio-button" type="submit">Submit</button></a>
+         <a href="{% url 'homepage' %}"><button class="radio-button" type="button">Back</button></a>
+        </div>
+    </form>
+
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Login as User</h1>
+
+<body>
+    <p>Users are able to buy models of phones of any brands</p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label>User Name</label>
+        <input type="text" name="username", placeholder="User Name">
+        <div>
+            <label>Password</label>
+            <input type="password" placeholder="Password">                          
+            <div>
+            <button type="submit" value="Login">Login</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+{% endblock %}
